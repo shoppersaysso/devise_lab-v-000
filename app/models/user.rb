@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   validates :password, presence: true, length: { minimum: 8 }
-v alidates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
